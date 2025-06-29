@@ -1,0 +1,246 @@
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: fadeInDown 1s ease-out;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    animation: zoomIn 0.8s ease-out 0.5s both;
+}
+
+.display {
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-align: right;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button:active::before {
+    width: 200px;
+    height: 200px;
+}
+
+.number {
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+.number:hover {
+    background: #d5dbdb;
+}
+
+.operator {
+    background: #e74c3c;
+    color: white;
+}
+
+.operator:hover {
+    background: #c0392b;
+}
+
+.equals {
+    background: #27ae60;
+    color: white;
+    grid-column: span 2;
+}
+
+.equals:hover {
+    background: #229954;
+}
+
+.clear {
+    background: #f39c12;
+    color: white;
+}
+
+.clear:hover {
+    background: #e67e22;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.footer {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 0.9em;
+    opacity: 0.8;
+    text-align: center;
+    animation: fadeIn 2s ease-out;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .title {
+        font-size: 2em;
+    }
+    
+    .calculator {
+        max-width: 280px;
+        padding: 20px;
+    }
+    
+    button {
+        padding: 15px;
+        font-size: 1.1em;
+    }
+    
+    .display {
+        font-size: 1.8em;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 320px) {
+    .calculator {
+        max-width: 260px;
+        padding: 15px;
+    }
+    
+    button {
+        padding: 12px;
+        font-size: 1em;
+    }
+    
+    .display {
+        font-size: 1.5em;
+        padding: 12px;
+    }
+}
